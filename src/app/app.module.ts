@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import  { HeroComponent } from './heros/heros.component';
 import { AddsearchComponent } from './addsearch/addsearch.component';
 import { HerodetailsComponent } from './herodetails/herodetails.component';
 import { HeroService } from './data/heroservices.component';
+import { HeroinfoComponent } from './heroinfo/heroinfo.component';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { HeroService } from './data/heroservices.component';
     DashComponent,
     HeroComponent,
     AddsearchComponent,
-    HerodetailsComponent
+    HerodetailsComponent,
+    HeroinfoComponent
     
     
     
@@ -28,7 +31,8 @@ import { HeroService } from './data/heroservices.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]

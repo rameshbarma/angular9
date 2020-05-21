@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroService {
+  Config='https://jsonplaceholder.typicode.com/users/';
     heroitems = [
         { id: 11, name: 'Dr Nice' },
         { id: 12, name: 'Narco' },
@@ -16,7 +18,14 @@ export class HeroService {
         { id: 19, name: 'Magma' },
         { id: 20, name: 'Tornado' }
       ];
+      constructor(private http: HttpClient) { 
+
+      };
+
       getdata(){
-          return this.heroitems;
+        return this.http.get(this.Config);
+      }
+      getdatabyid(id){
+        return this.http.get(this.Config+id);
       }
 }

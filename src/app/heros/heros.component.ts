@@ -9,7 +9,7 @@ import { HeroService } from '../data/heroservices.component';
 })
 
 export class HeroComponent {
-  heros = []
+  heros:any = []
   profileForm = new FormGroup({
     name: new FormControl(''),
     id: new FormControl(''),
@@ -18,9 +18,33 @@ export class HeroComponent {
   constructor(private heroService: HeroService) {
 
    }
+   isLoading =true;
+   error;
    ngOnInit() {
-    this.heroService.getdata();
-    this.heros=this.heroService.getdata();
+    // this.heroService.getdata();
+    // this.heroService.getdata().subscribe((data:any)=>{
+    //   //this.hero.name=data.title;
+    //   console.log(data);
+    //   const heros = data.map(i => {
+    //     i.name=i.title;
+    //     return i;
+    //   });
+    //  this.heros = heros;
+    
+    // });
+    this.heroService.getdata().subscribe((data:any) =>{
+      console.log(data);
+      this.isLoading=false;
+      // const heros = data.map(a =>{
+      //   //a.name = a.title;
+      //   return a;
+      // });
+      this.heros =data;
+    },(error)=>{
+      this.isLoading=false;
+      //console.log(error);
+      this.error =error;
+    })
   }
 
  

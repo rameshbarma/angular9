@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { HeroService } from '../data/heroservices.component';
 
 
 @Component({
@@ -9,6 +9,32 @@ import { Component } from '@angular/core';
 })
 
 export class DashComponent {
-  boarditems =['Narco','Bombasto','Celeritas','Magneta'];
+  boarditems:any =[];
+  
+  constructor(private heroService: HeroService) {
+
+  }
+  ngOnInit() {
+    this.heroService.getdata().subscribe((data:any) =>{
+      console.log(data);
+      function random_item(data)
+{
+  let result=[];
+  for(let i=0;i<4;i++){
+   let a=data[Math.floor(Math.random()*data.length)];
+   result.push(a)
+   console.log(a);
+  }
+return result;
+     
+}
+//console.log(random_item(data));
+
+const item=random_item(data);
+console.log(item);
+      this.boarditems = item;
+    });
+  }
+
 }
 
