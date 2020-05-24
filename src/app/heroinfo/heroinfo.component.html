@@ -1,5 +1,7 @@
-<a routerLink="/detail/{{id}}">
+<div appHighlight>
+  <a routerLink="/detail/{{id}}">
     <span class="badge">{{id}}</span> {{name}}
   </a>
-  <button class="delete" 
+  <button class="delete" (click)="removeitem($event,id)"
   >x</button>
+</div>

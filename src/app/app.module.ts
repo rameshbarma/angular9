@@ -12,6 +12,7 @@ import { AddsearchComponent } from './addsearch/addsearch.component';
 import { HerodetailsComponent } from './herodetails/herodetails.component';
 import { HeroService } from './data/heroservices.component';
 import { HeroinfoComponent } from './heroinfo/heroinfo.component';
+import { HighlightDirective } from './directive/custom.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HeroinfoComponent } from './heroinfo/heroinfo.component';
     HeroComponent,
     AddsearchComponent,
     HerodetailsComponent,
-    HeroinfoComponent
+    HeroinfoComponent,
+    HighlightDirective
     
     
     

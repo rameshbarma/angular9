@@ -10,7 +10,7 @@
 <div *ngIf="error">error....</div>
 <ul class="heroes" >
     <li *ngFor="let hero of heros.slice(0,5)" >
-      <hero-info name="{{hero.name}}" id="{{hero.id}}"></hero-info>
+      <hero-info name="{{hero.name}}" id="{{hero.id}}" (remove)="delete($event)"></hero-info>
       <!-- <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
@@ -18,4 +18,6 @@
     (click)="delete(hero)">x</button> -->
       </li>
       </ul>
-      
+
+      <button class="delete" 
+    (click)="change()">change</button>

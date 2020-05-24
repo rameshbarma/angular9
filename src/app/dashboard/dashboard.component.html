@@ -1,6 +1,6 @@
 <h3>Dash Board</h3>
 <ul>
-    <li *ngFor="let boarditem of boarditems" >
+    <li *ngFor="let boarditem of boarditems" routerLink="/detail/{{boarditem.id}}">
         {{ boarditem.name }}
       </li>
       </ul>

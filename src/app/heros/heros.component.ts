@@ -56,15 +56,22 @@ export class HeroComponent {
       this.profileForm.reset();
     }
 
-    delete(hero): void {
+    delete(id): void {
    this.heros=this.heros.filter(item =>{
-     console.log(item.id !== hero.id);
+     console.log(item.id !== +id);
      
-     return item.id !== hero.id;
+     return item.id !== +id;
     
    });
    console.log(this.heros)
      // delete this.heros;
+    }
+
+    change(){
+      this.heros=this.heros.map((i) =>{
+        i.name= "change" + i.name;
+        return i;
+      });
     }
   
 }
