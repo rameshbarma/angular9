@@ -10,6 +10,7 @@ import { HeroService } from '../data/heroservices.component';
 
 export class DashComponent {
   boarditems:any =[];
+  myCondtion;
   
   constructor(private heroService: HeroService) {
 
@@ -35,6 +36,10 @@ console.log(item);
       this.boarditems = item;
     });
   }
-
+ 
+ toggle(){
+   console.log(this.myCondtion);
+   this.myCondtion = !this.myCondtion;
+ }
 }
 

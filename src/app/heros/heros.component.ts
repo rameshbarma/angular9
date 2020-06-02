@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HeroService } from '../data/heroservices.component';
+import { throwError, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'heros-part',
@@ -9,18 +11,29 @@ import { HeroService } from '../data/heroservices.component';
 })
 
 export class HeroComponent {
-  heros:any = []
+  heros:any = [];
+  errorObject:any;
+  rendom = Math.floor(Math.random() * 10) + 1;
   profileForm = new FormGroup({
     name: new FormControl(''),
     id: new FormControl(''),
+   
   });
-  
+ 
   constructor(private heroService: HeroService) {
 
    }
+
+   
    isLoading =true;
    error;
    ngOnInit() {
+     this.heros = this.heroService.getdata().pipe(
+      catchError(err => {
+        this.errorObject = err;
+        return throwError(err);
+      })
+    );
     // this.heroService.getdata();
     // this.heroService.getdata().subscribe((data:any)=>{
     //   //this.hero.name=data.title;
@@ -32,19 +45,19 @@ export class HeroComponent {
     //  this.heros = heros;
     
     // });
-    this.heroService.getdata().subscribe((data:any) =>{
-      console.log(data);
-      this.isLoading=false;
-      // const heros = data.map(a =>{
-      //   //a.name = a.title;
-      //   return a;
-      // });
-      this.heros =data;
-    },(error)=>{
-      this.isLoading=false;
-      //console.log(error);
-      this.error =error;
-    })
+    // this.heroService.getdata().subscribe((data:any) =>{
+    //   console.log(data);
+    //   this.isLoading=false;
+    //   // const heros = data.map(a =>{
+    //   //   //a.name = a.title;
+    //   //   return a;
+    //   // });
+    //   this.heros =data;
+    // },(error)=>{
+    //   this.isLoading=false;
+    //   //console.log(error);
+    //   this.error =error;
+    // })
   }
 
  

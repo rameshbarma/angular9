@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class HeroService {
-  Config='https://jsonplaceholder.typicode.com/users/';
+  Config='/users/';
     heroitems = [
         { id: 11, name: 'Dr Nice' },
         { id: 12, name: 'Narco' },

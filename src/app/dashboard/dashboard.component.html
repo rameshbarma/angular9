@@ -5,3 +5,17 @@
       </li>
       </ul>
 
+      <div>
+        <p>Structureal directive</p>
+        <p *iftrue="myCondtion">
+          Expression is true and ngIf is true.
+          This paragraph is in the DOM.
+        </p>
+        <!-- <p *ngIf="false">
+          Expression is false and ngIf is false.
+          This paragraph is not in the DOM.
+        </p> -->
+        <button type="button" (click)="toggle()"> Toggleclick</button>
+        
+      </div>
+
